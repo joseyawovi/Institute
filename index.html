@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Institut de Langue Française (ILF) - Online French Training</title>
+    <meta name="description" content="Learn French online with ILF. DELF, TEF, TCF preparation from A1 to B2. Small classes, flexible timings, free demo class.">
+    <meta name="keywords" content="DELF online, TEF Canada coaching, French course A1 online, French language institute, learn French online">
+    <style>
+        /* Global Styles */
+        :root {
+            --primary-blue: #002F6C;
+            --accent-red: #EF3340;
+            --white: #ffffff;
+            --light-gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark-gray);
+            background-color: var(--white);
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1, h2, h3, h4 {
+            color: var(--primary-blue);
+            margin-bottom: 1rem;
+        }
+        
+        p {
+            margin-bottom: 1rem;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-blue);
+            transition: color 0.3s;
+        }
+        
+        a:hover {
+            color: var(--accent-red);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: 600;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: var(--accent-red);
+            color: var(--white);
+        }
+        
+        .btn-secondary {
+            background-color: var(--accent-red);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--primary-blue);
+        }
+        
+        section {
+            padding: 60px 0;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+        
+        .logo span {
+            color: var(--accent-red);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            font-weight: 500;
+        }
+        
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,47,108,0.8), rgba(0,47,108,0.8)), url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 100px 0;
+        }
+        
+        .hero h1 {
+            color: var(--white);
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .pricing-strip {
+            background-color: rgba(255,255,255,0.2);
+            padding: 15px;
+            border-radius: 4px;
+            margin-top: 30px;
+            display: inline-block;
+        }
+        
+        /* Courses Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        
+        .courses-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .course-card {
+            background-color: var(--white);
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .course-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .course-header {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .course-body {
+            padding: 20px;
+        }
+        
+        .course-price {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-red);
+            margin-bottom: 10px;
+        }
+        
+        .course-features {
+            list-style: none;
+            margin-bottom: 20px;
+        }
+        
+        .course-features li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .course-features li:last-child {
+            border-bottom: none;
+        }
+        
+        .course-options {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        
+        /* Pricing Section */
+        .pricing-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        
+        .pricing-table th, .pricing-table td {
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .pricing-table th {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+        
+        .pricing-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        
+        .faq-item {
+            margin-bottom: 20px;
+        }
+        
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            display: none;
+            padding-left: 20px;
+        }
+        
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .about-image {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Section */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .contact-item {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+        }
+        
+        .contact-item i {
+            font-size: 2rem;
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 40px 0 20px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column ul li a {
+            color: var(--white);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* WhatsApp Floating Button */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background-color: #25D366;
+            color: var(--white);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 1000;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                padding: 10px 0;
+            }
+            
+            nav {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+                position: absolute;
+                top: 15px;
+                right: 15px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .pricing-table {
+                display: block;
+                overflow-x: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Institut de <span>Langue Française</span></div>
+            <button class="mobile-menu-btn">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#pricing">Pricing</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Master French Online with Expert Instructors</h1>
+            <p>DELF, TEF, and TCF preparation from A1 to B2. Small classes, flexible timings, and a free demo class.</p>
+            <div class="hero-btns">
+                <a href="https://wa.me/919872938388?text=Hello!%20I%20would%20like%20to%20book%20a%20free%20demo%20class%20(1%20demo)%20with%20Institut%20de%20Langue%20Française%20(ILF).%20Thank%20you." class="btn" target="_blank">Book a Free Demo</a>
+                <a href="https://wa.me/919872938388?text=Hello!%20I%20would%20like%20to%20chat%20with%20an%20advisor%20about%20French%20courses%20at%20ILF." class="btn btn-secondary" target="_blank">Chat with an Advisor</a>
+            </div>
+            <div class="pricing-strip">
+                <p>Courses starting from ₹5,500 per person | Max 3 students per batch</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <h2 class="section-title">Our French Courses</h2>
+            <div class="courses-grid">
+                <!-- A1 Course Card -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>A1 French Course</h3>
+                        <p>Beginner Level</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-price">₹5,500 - ₹7,000</div>
+                        <ul class="course-features">
+                            <li><strong>Duration:</strong> 8 weeks</li>
+                            <li><strong>Sessions:</strong> 3 per week</li>
+                            <li><strong>Total Hours:</strong> 24 hours</li>
+                            <li><strong>Max Class Size:</strong> 3 students</li>
+                            <li><strong>Learning Objectives:</strong> Basic greetings, introductions, simple conversations</li>
+                        </ul>
+                        <div class="course-options">
+                            <a href="https://wa.me/919872938388?text=Hello!%20I%20want%20to%20register%20for%20the%20A1%20French%20course%20(individual).%20Fee:%20₹7,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Individual (₹7,000)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Two%20of%20us%20want%20to%20register%20for%20the%20A1%20French%20course%20(duo).%20Fee%20per%20person:%20₹6,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Duo (₹6,000 per person)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Three%20of%20us%20want%20to%20register%20for%20the%20A1%20French%20course%20(trio).%20Fee%20per%20person:%20₹5,500.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Trio (₹5,500 per person)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- A2 Course Card -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>A2 French Course</h3>
+                        <p>Elementary Level</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-price">₹5,500 - ₹7,000</div>
+                        <ul class="course-features">
+                            <li><strong>Duration:</strong> 10 weeks</li>
+                            <li><strong>Sessions:</strong> 3 per week</li>
+                            <li><strong>Total Hours:</strong> 30 hours</li>
+                            <li><strong>Max Class Size:</strong> 3 students</li>
+                            <li><strong>Learning Objectives:</strong> Everyday situations, simple descriptions, basic interactions</li>
+                        </ul>
+                        <div class="course-options">
+                            <a href="https://wa.me/919872938388?text=Hello!%20I%20want%20to%20register%20for%20the%20A2%20French%20course%20(individual).%20Fee:%20₹7,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Individual (₹7,000)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Two%20of%20us%20want%20to%20register%20for%20the%20A2%20French%20course%20(duo).%20Fee%20per%20person:%20₹6,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Duo (₹6,000 per person)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Three%20of%20us%20want%20to%20register%20for%20the%20A2%20French%20course%20(trio).%20Fee%20per%20person:%20₹5,500.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Trio (₹5,500 per person)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B1 Course Card -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>B1 French Course</h3>
+                        <p>Intermediate Level</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-price">₹7,500 - ₹9,000</div>
+                        <ul class="course-features">
+                            <li><strong>Duration:</strong> 12 weeks</li>
+                            <li><strong>Sessions:</strong> 3 per week</li>
+                            <li><strong>Total Hours:</strong> 36 hours</li>
+                            <li><strong>Max Class Size:</strong> 3 students</li>
+                            <li><strong>Learning Objectives:</strong> Express opinions, handle travel situations, describe experiences</li>
+                        </ul>
+                        <div class="course-options">
+                            <a href="https://wa.me/919872938388?text=Hello!%20I%20want%20to%20register%20for%20the%20B1%20French%20course%20(individual).%20Fee:%20₹9,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Individual (₹9,000)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Two%20of%20us%20want%20to%20register%20for%20the%20B1%20French%20course%20(duo).%20Fee%20per%20person:%20₹8,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Duo (₹8,000 per person)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Three%20of%20us%20want%20to%20register%20for%20the%20B1%20French%20course%20(trio).%20Fee%20per%20person:%20₹7,500.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Trio (₹7,500 per person)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- B2 Course Card -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>B2 French Course</h3>
+                        <p>Upper Intermediate</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-price">₹7,500 - ₹9,000</div>
+                        <ul class="course-features">
+                            <li><strong>Duration:</strong> 14 weeks</li>
+                            <li><strong>Sessions:</strong> 3 per week</li>
+                            <li><strong>Total Hours:</strong> 42 hours</li>
+                            <li><strong>Max Class Size:</strong> 3 students</li>
+                            <li><strong>Learning Objectives:</strong> Complex texts, technical discussions, fluent spontaneous conversation</li>
+                        </ul>
+                        <div class="course-options">
+                            <a href="https://wa.me/919872938388?text=Hello!%20I%20want%20to%20register%20for%20the%20B2%20French%20course%20(individual).%20Fee:%20₹9,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Individual (₹9,000)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Two%20of%20us%20want%20to%20register%20for%20the%20B2%20French%20course%20(duo).%20Fee%20per%20person:%20₹8,000.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Duo (₹8,000 per person)</a>
+                            <a href="https://wa.me/919872938388?text=Hello!%20Three%20of%20us%20want%20to%20register%20for%20the%20B2%20French%20course%20(trio).%20Fee%20per%20person:%20₹7,500.%20Maximum%20class%20size:%203.%20Payment%20before%203rd%20week.%20Thank%20you." class="btn" target="_blank">Trio (₹7,500 per person)</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- TEF Course Card -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>TEF Preparation</h3>
+                        <p>Test d'Évaluation de Français</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-price">Custom Pricing</div>
+                        <ul class="course-features">
+                            <li><strong>Duration:</strong> Flexible</li>
+                            <li><strong>Sessions:</strong> Custom schedule</li>
+                            <li><strong>Total Hours:</strong> Based on needs</li>
+                            <li><strong>Max Class Size:</strong> 3 students</li>
+                            <li><strong>Learning Objectives:</strong> TEF exam preparation for Canada immigration</li>
+                        </ul>
+                        <a href="https://wa.me/919872938388?text=Hello!%20I%20am%20interested%20in%20TEF%20preparation%20course%20at%20ILF.%20Please%20share%20more%20details." class="btn" target="_blank">Get Custom Quote</a>
+                    </div>
+                </div>
+
+                <!-- TCF Course Card -->
+                <div class="course-card">
+                    <div class="course-header">
+                        <h3>TCF Preparation</h3>
+                        <p>Test de Connaissance du Français</p>
+                    </div>
+                    <div class="course-body">
+                        <div class="course-price">Custom Pricing</div>
+                        <ul class="course-features">
+                            <li><strong>Duration:</strong> Flexible</li>
+                            <li><strong>Sessions:</strong> Custom schedule</li>
+                            <li><strong>Total Hours:</strong> Based on needs</li>
+                            <li><strong>Max Class Size:</strong> 3 students</li>
+                            <li><strong>Learning Objectives:</strong> TCF exam preparation for studies or immigration</li>
+                        </ul>
+                        <a href="https://wa.me/919872938388?text=Hello!%20I%20am%20interested%20in%20TCF%20preparation%20course%20at%20ILF.%20Please%20share%20more%20details." class="btn" target="_blank">Get Custom Quote</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Course Pricing</h2>
+            
+            <table class="pricing-table">
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>1 Student</th>
+                        <th>2 Students</th>
+                        <th>3 Students</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>A1–A2</td>
+                        <td>₹7,000</td>
+                        <td>₹6,000 per person</td>
+                        <td>₹5,500 per person</td>
+                    </tr>
+                    <tr>
+                        <td>B1–B2</td>
+                        <td>₹9,000</td>
+                        <td>₹8,000 per person</td>
+                        <td>₹7,500 per person</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="payment-info">
+                <h3>Payment Information</h3>
+                <p><strong>Payment Deadline:</strong> School fees must be paid before the 3rd week of classes.</p>
+                <p><strong>Accepted Payment Methods:</strong> Bank transfer, UPI, Credit/Debit cards</p>
+                <p class="disclaimer">Fees shown are indicative; final confirmation via WhatsApp.</p>
+            </div>
+            
+            <div class="faq">
+                <h3>Frequently Asked Questions</h3>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What is included in the course fee?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>The course fee includes all learning materials, access to online resources, and personalized feedback from instructors.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Is there a refund policy?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Full refunds are available before the second class. After that, partial refunds may be considered on a case-by-case basis.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Can I change my batch timing?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Batch timing changes are subject to availability. Please contact us via WhatsApp to discuss options.</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>What if I miss a class?</span>
+                        <span>+</span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Recorded sessions are provided for missed classes. You can also schedule a makeup session with your instructor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Institut de Langue Française</h2>
+            <div class="about-content">
+                <div>
+                    <h3>Our Mission</h3>
+                    <p>At ILF, we're dedicated to making French language learning accessible, effective, and enjoyable for students of all levels. Our mission is to provide high-quality online instruction that prepares students for international French proficiency exams while building practical communication skills.</p>
+                    
+                    <h3>Our Methodology</h3>
+                    <p>We employ a communicative approach that emphasizes real-world language use. Our small class sizes (maximum 3 students) ensure personalized attention and ample speaking practice. Lessons combine structured grammar instruction with interactive activities, multimedia resources, and cultural insights.</p>
+                    
+                    <h3>Why Choose ILF?</h3>
+                    <ul>
+                        <li>Expert native and near-native French instructors</li>
+                        <li>Small class sizes for personalized learning</li>
+                        <li>Flexible scheduling to fit your lifestyle</li>
+                        <li>Comprehensive exam preparation (DELF, TEF, TCF)</li>
+                        <li>Free demo class to experience our teaching style</li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://images.unsplash.com/photo-1523580494863-6f3031224c94?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="French language learning" class="about-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i>📱</i>
+                    <h3>WhatsApp</h3>
+                    <p>+91 98729 38388</p>
+                    <p>Primary communication channel</p>
+                    <a href="https://wa.me/919872938388" class="btn" target="_blank">Message Us</a>
+                </div>
+                
+                <div class="contact-item">
+                    <i>📧</i>
+                    <h3>Email</h3>
+                    <p>info@ilfrench.com</p>
+                    <p>For detailed inquiries</p>
+                    <a href="mailto:info@ilfrench.com" class="btn">Send Email</a>
+                </div>
+                
+                <div class="contact-item">
+                    <i>💬</i>
+                    <h3>Free Demo</h3>
+                    <p>15-30 minutes</p>
+                    <p>Experience our teaching method</p>
+                    <a href="https://wa.me/919872938388?text=Hello!%20I%20would%20like%20to%20book%20a%20free%20demo%20class%20(1%20demo)%20with%20Institut%20de%20Langue%20Française%20(ILF).%20Thank%20you." class="btn" target="_blank">Book Demo</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Institut de Langue Française</h3>
+                    <p>Your gateway to mastering French online with expert instruction and personalized attention.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li>WhatsApp: +91 98729 38388</li>
+                        <li>Email: info@ilfrench.com</li>
+                        <li>Online Classes Only</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms & Conditions</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Refund Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2023 Institut de Langue Française. All rights reserved.</p>
+                <p>Fees shown are indicative; final confirmation via WhatsApp.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/919872938388" class="whatsapp-float" target="_blank">
+        💬
+    </a>
+
+    <script>
+        // Mobile Menu Toggle
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('nav ul').classList.toggle('show');
+        });
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const isOpen = answer.style.display === 'block';
+                
+                // Close all answers
+                document.querySelectorAll('.faq-answer').forEach(ans => {
+                    ans.style.display = 'none';
+                });
+                
+                // Reset all icons
+                document.querySelectorAll('.faq-question span:last-child').forEach(icon => {
+                    icon.textContent = '+';
+                });
+                
+                // Open clicked answer if it was closed
+                if (!isOpen) {
+                    answer.style.display = 'block';
+                    question.querySelector('span:last-child').textContent = '−';
+                }
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
